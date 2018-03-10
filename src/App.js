@@ -46,7 +46,7 @@ class App extends Component {
     });
 
     return (
-      <div className = "tc">
+      <div className = "fl w-100 tc">
         <h1>ESHOP</h1>
         <StoreFilter storeChange = {this.handleStoreChange}/>
         <InStock stock = { this.handleInStock }/>
