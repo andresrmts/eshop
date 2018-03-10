@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import ProductList from './ProductList';
-import StoreFilter from './StoreFilter';
-import Scroll from './Scroll';
-import InStock from './InStock';
+import ProductList from '../Components/ProductList';
+import StoreFilter from '../Components/StoreFilter';
+import Scroll from '../Components/Scroll';
+import InStock from '../Components/InStock';
 
 class App extends Component {
   constructor() {
@@ -46,10 +46,12 @@ class App extends Component {
     });
 
     return (
-      <div className = "fl w-100 tc">
-        <h1>ESHOP</h1>
-        <StoreFilter storeChange = {this.handleStoreChange}/>
-        <InStock stock = { this.handleInStock }/>
+      <div className = "fl w-100 h-100 tc">
+        <div style={{height: '30vh'}}>
+          <h1 style={{height: '10vh'}}>ESHOP</h1>
+          <StoreFilter style={{height: '10vh'}} storeChange = {this.handleStoreChange}/>
+          <InStock stock = { this.handleInStock }/>
+        </div>
         <Scroll>
           <ProductList products = { filtered } />
         </Scroll>
