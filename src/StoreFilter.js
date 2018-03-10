@@ -7,7 +7,7 @@ const StoreFilter = ({storeChange}) => {
 				className = "pa3 ba b--green bg-lightest-blue" 
 				id="stores"
 				onChange={storeChange}>
-				<option value=""></option>
+				<option value="">All stores</option>
 				<option value="Finland">Finland</option>
 				<option value="Estonia">Estonia</option>
 			</select>

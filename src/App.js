@@ -33,35 +33,25 @@ class App extends Component {
 
   render() {
     const { products, store, instock } = this.state;
-    // const filtered = products.filter(product => {
-    //   if (store !== '' && instock === true) {
-    //     return product.store.toLowerCase().includes(store.toLowerCase()).instock;
-    //   } else if (instock === true && store === '') {
-    //     return product.instock === instock;
-    //   } else if (instock === '' && store !== '') {
-    //     return product.store.toLowerCase().includes(store.toLowerCase());
-    //   } else {
-    //     return products;
-    //   }
-    // });
-    // const filteredByStore = products.filter(product => {
-    //   return product.store.toLowerCase().includes(store.toLowerCase());
-    // })
-
-    const filteredByInStock = products.filter(product => {
-      if (instock === true) {
+    const filtered = products.filter(product => {
+      if (store !== '' && instock === true) {
+        return product.store.toLowerCase().includes(store.toLowerCase()) && product.instock === instock;
+      } else if (instock === true && store === '') {
         return product.instock === instock;
-      } else if (instock === false) {
+      } else if (instock === false && store !== '') {
+        return product.store.toLowerCase().includes(store.toLowerCase());
+      } else {
         return product;
       }
-    })
+    });
+
     return (
       <div className = "tc">
         <h1>ESHOP</h1>
         <StoreFilter storeChange = {this.handleStoreChange}/>
         <InStock stock = { this.handleInStock }/>
         <Scroll>
-          <ProductList products = { filteredByInStock } />
+          <ProductList products = { filtered } />
         </Scroll>
       </div>
     );
