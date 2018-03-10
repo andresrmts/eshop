@@ -7,15 +7,17 @@ const ProductList = ({products}) => {
 			{
 			products.map((product, i) => {
 				return (
-					<Product 
+					<Product
 						key = {products[i].id}
 						img = {products[i].image}
 						name = {products[i].name}
 						price = {products[i].price}
 						currency = {products[i].currency}
+						description = {products[i].description}
+						department = {products[i].department}
 						/>
 					)
-				})	
+				})
 			}
 		</div>
 
